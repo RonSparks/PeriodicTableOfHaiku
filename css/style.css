@@ -14,10 +14,11 @@
 }
 body {
   font-family: Phenomena, script;
-  margin: 5vw;
+
   background: #d3d3d3;
   color: #000;
   counter-reset: element;
+  font-size: 1.1em;
 }
 .periodic-table {
   display: grid;
@@ -129,7 +130,15 @@ body {
     display: none !important;
   }
 }
-
+h1 {
+  display: block;
+  font-size: 3em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
 /* Styles for the lightbox */
 #lightbox-overlay {
   display: none;
@@ -146,10 +155,38 @@ body {
 
 #lightbox-content {
   background: #fff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   text-align: center;
   font-size: 1.3em;
+}
+
+/* Styles for the dark footer */
+#footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 7px;
+  bottom: 0;
+  width: 100%;
+}
+/* Styles for the footer links */
+#footer a {
+  color: orange;
+}
+
+/* Styles for the header */
+#header {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px; 
+  top: 0;
+  width: 100%;
+  z-index: 9999; /* Set a high z-index to ensure it appears on top */
+}
+#header a:visited {
+  color: orange;
 }
 
 @media all and (max-width: 750px) {
