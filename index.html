@@ -32,7 +32,7 @@
    <body>
       <header class="cd__intro">
          <h1> The Periodic Table Haiku </h1>
-         <p> (originally hosted by Ron Sparks on iSciFiStory.com)</p>
+         <p> (originally hosted by <a href="https://www.ronsparks.com" target="_newsite">Ron Sparks</a> on iSciFiStory.com)</p>
          <div class="cd__action">
             <a href="https://www.ronsparks.com" title="What is the Periodic Table of Haiku?" target="_new" class="cd__btn back">What is the Periodic Table of Haiku?</a>
          </div>
@@ -197,7 +197,7 @@
 							<i>9</i>
 							<strong>F</strong>
 						</div>
-						<div class='face back'>
+						<div class='face back' id="fluorine" data-haiku="">
 							<p>Fluorine<span>18.998</span><p>
 						</div>
 					</div>
@@ -208,7 +208,7 @@
 							<i>10</i>
 							<strong>Ne</strong>
 						</div>
-						<div class='face back'>
+						<div class='face back' id="fluorine" data-haiku="">
 							<p>Neon<span>20.1797</span><p>
 						</div>
 					</div>
@@ -1394,7 +1394,7 @@
 			</div><!-- //Elements -->
 		</div> <!-- //Wrapper -->
       </main>
-      <footer class="cd__credit">Copyright &copy; 2000 - 2024 Ron Sparks </footer>
+      <footer class="cd__credit">Copyright &copy; 2000 - 2024 &nbsp;<a href="https://www.ronsparks.com" target="_newsite">Ron Sparks</a> </footer>
       
       <!-- Script JS -->
       <script  type="text/javascript">
@@ -1427,8 +1427,9 @@
 				haiku[4] = "<br/><br/><b>4 Beryllium</b><br/><br/>stable conductor<br/>detecting radiation<br/>reflecting neutrons<br/><br/>&nbsp;&nbsp;&nbsp;<a href='mailto:viki@pacbell.net'>viki</a>&nbsp;<p>";
 				haiku[5] = "<br/><br/><b>5 Boron</b><br/><br/>Brown propellant gives<br/>roadside help, but abrasive<br/>rubs us the wrong way<br/><br/>&nbsp;&nbsp;&nbsp;<a href='mailto:karenr2@mediaone.net'>Karen A. Romanko</a>&nbsp;<p>";
 				haiku[6] = "<br/><br/><b>6 Carbon</b><br/><br/>Dead stars reborn<br/>as diamonds, buckeyballs,<br/>and beings<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<a href='mailto:shal@loc.gov'>Stephanie Hall</a>";
-				haiku[7] = "<br/><br/><b>7 Nitrogen</b><br/><br/>the sky's referee,<br/>without its calming effect,<br/>oxygen will burn<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<a href='mailto:scv@scvs.com'>s.c. virtes</a>"
-				haiku[8] = "<br/><br/><b>8 Oxygen</b><br/><br/>Green plants' waste;<br/>Earth's invisible treasure:<br/>now breathe.<br/><br/><a href='mailto:shal@loc.gov'>Stephanie Hall</a>"
+				haiku[7] = "<br/><br/><b>7 Nitrogen</b><br/><br/>the sky's referee,<br/>without its calming effect,<br/>oxygen will burn<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<a href='mailto:scv@scvs.com'>s.c. virtes</a>";
+				haiku[8] = "<br/><br/><b>8 Oxygen</b><br/><br/>Green plants' waste;<br/>Earth's invisible treasure:<br/>now breathe.<br/><br/><a href='mailto:shal@loc.gov'>Stephanie Hall</a>";
+				haiku[9] = "<br/><br/><b>9 Fluorine</b><br/><br/>science is risky<br/>so hard to get it alone<br/>but find it and die<br/><br/>&nbsp;&nbsp;<a href='mailto:davidkm@gsa.state.al.us'>David C. Kopaska-Merkel</a>&nbsp;<p/>";
         
         		return haiku[elementNum];
    		 }
@@ -1443,6 +1444,7 @@
 	        	document.getElementById('carbon').setAttribute("data-haiku", getHaikuForElement(6));
 	        	document.getElementById('nitrogen').setAttribute("data-haiku", getHaikuForElement(7));
 	        	document.getElementById('oxygen').setAttribute("data-haiku", getHaikuForElement(8));
+	        	document.getElementById('fluorine').setAttribute("data-haiku", getHaikuForElement(9));
         }
 
 	    // Call the function when the page has finished loading
