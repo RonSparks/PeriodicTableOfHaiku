@@ -45,8 +45,25 @@ body {
   font-size: .9vw;
   font-weight: lighter;
 }
+ol li:hover::after {
+  content: "Click to view poem";
+  display: block;
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  top: 50%;
+  left: 100%;
+  transform: translate(5px, -50%);
+  white-space: nowrap;
+  z-index: 9898;
+}
 .periodic-table > li abbr {
   font-size: 2.5vw;
+}
+.periodic-table > li hover {
+  background-color: #ddd;
 }
 #helium {
   grid-column-start: 18;
