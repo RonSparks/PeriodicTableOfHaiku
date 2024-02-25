@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> The Original Periodic Table Of Elements Example </title>
+
+        <!-- Recommended meta tags for SEO -->
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+        <meta name="bingbot" content="index, follow">
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="The Original Periodic Table of Haiku">
+        <meta property="og:description" content="The Periodic Table of Haiku was an early 2000's internet sensation wherein poets would write sci-fi based haiku - scifaiku - to each element of the Period Table. It was featured in Science Magazine and on NPR's 'All Things Considered'.  It has been revived by it's author, Ron Sparks, for historical purposes.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.periodictableofhaiku.com">
+        <meta property="og:image" content="https://www.periodictableofhaiku.com/img/iscifistoryLogo.gif">
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@RonSparks">
+        <meta name="twitter:title" content="The Original Periodic Table Haiku">
+        <meta name="twitter:description" content="The Periodic Table of Haiku was an early 2000's internet sensation wherein poets would write sci-fi based haiku - scifaiku - to each element of the Period Table. It was featured in Science Magazine and on NPR's 'All Things Considered'.  It has been revived by it's author, Ron Sparks, for historical purposes.">
+        <meta name="twitter:image" content="https://www.periodictableofhaiku.com/img/iscifistoryLogo.gif">
+
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="./scripts/script.js"></script>
+      
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      text-align: left !important;
+    }
+
+    .thumbnail-container {
+      float: right;
+      margin-left: 20px;
+    }
+
+    .thumbnail {
+      max-width: 30%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .lightbox1 {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox1 img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    p {
+      margin-top: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header id="header">
+            <p><a href="index.html" title="Back to the Periodic Table if Haiku" target="_new">Back to the Periodic Table if Haiku</a></p>
+        </header>
+        <h1> What is the Periodic Table of Haiku? </h1>
+  <div class="container">
+
+    <p>
+      The Periodic Table of Haiku was created by Ron Sparks in January 2001 by Ron Sparks as a way to introduce himself to the scifaiku (science-fiction haiku) community that was thriving in that day.  It was an overnight Internet sensation and was featured on FARK.COM, SLASHDOT.ORG, in Science Magazine, and was highhlighted in a segment of NPR's "All Things Considered."<p/>
+
+      Originally hosted on iSciFiStory.com, Ron's website of the time, it eventually disappeared from the internet when Ron shut down the iSciFiStory.com website.  <p/>
+
+      Ron has revived the Periodic Table of Haiku here for historical purposes - there are no current plans to update it beyond the window dressing it has received here for responsiveness in modern web browers.<p/>
+
+      Click the thumbnail below to see what the original Period Table of Haiku looked like in 2001.<p/>
+    </p>
+
+    <div class="thumbnail-container">
+      <img class="thumbnail" src="https://www.periodictableofhaiku.com/img/original_ptoe_screenshot.jpg" alt="Thumbnail">
+    </div>
+
+          <p>
+            <h2>I'm one of the original Poets and want to update my email address / link to my name on the poem!</h2>
+            I will be happy to do so.  Please go to my website <a href="https://www.ronsparks.com" target="_new">RonSparks.com</a> and find my social media links to contact me.
+        </p>
+  </div>
+
+
+
+  <div class="lightbox1" id="lightbox1">
+    <img src="https://www.periodictableofhaiku.com/img/original_ptoe_screenshot.jpg" alt="Periodic Table of Haiku">
+  </div>
+
+ <div id="footer">
+          <p>&copy; 1999-2024 <a href="https://www.ronsparks.com" target="_new">Ron Sparks</a>. All rights reserved.</p>
+        </div>     
+
+  <script>
+    document.querySelector('.thumbnail').addEventListener('click', function () {
+      document.getElementById('lightbox1').style.display = 'flex';
+    });
+
+    document.getElementById('lightbox1').addEventListener('click', function () {
+      this.style.display = 'none';
+    });
+  </script>       
+    </body>
+</html>

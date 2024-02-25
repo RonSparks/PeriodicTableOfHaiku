@@ -205,6 +205,23 @@ h1 {
 #header a:visited {
   color: orange;
 }
+#header a {
+  color: orange;
+}
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
 @media all and (max-width: 750px) {
   body {

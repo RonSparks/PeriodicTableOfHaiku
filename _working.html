@@ -1,1 +1,100 @@
-<b>31 Gallium</b><p/>generic metal<br/>until prodded, excited<br/>melting in your hand<p/><a href='mailto:scv@scvs.com'>s.c. virtes</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text with Thumbnail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #container {
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #text {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        #thumbnail {
+            width: 20%;
+            max-width: 150px; /* Set a maximum width for the thumbnail */
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: 0;
+            order: -1; /* Move thumbnail to the top on small screens */
+        }
+
+        #thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+        }
+
+        #closeBtn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="text">
+        <h1>Your Text Goes Here</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac efficitur elit. Proin sodales nisl vel nunc
+            lacinia, vel cursus sem auctor. Integer auctor nulla vel ipsum sagittis, nec convallis sem vestibulum. Nullam
+            tincidunt magna a neque convallis ullamcorper.</p>
+        <!-- Add more text as needed -->
+    </div>
+
+    <div id="thumbnail" onclick="openLightbox()">
+        <img src="https://www.periodictableofhaiku.com/img/original_ptoe_screenshot.jpg" alt="Thumbnail">
+    </div>
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <div id="closeBtn">&times;</div>
+    <img src="https://www.periodictableofhaiku.com/img/original_ptoe_screenshot.jpg" alt="Full-size Image">
+</div>
+
+<script>
+    function openLightbox() {
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
