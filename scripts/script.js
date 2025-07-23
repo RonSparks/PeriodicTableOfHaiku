@@ -981,7 +981,14 @@ function formatHaikuContent(element) {
       <div class="haiku-content">
         <div class="haiku-poem">${element.poem}</div>
         <hr style="margin:1.5em 0; border:0; border-top:1px solid #444;"/>
-        <div class="haiku-history"><strong>History:</strong> ${element.history}</div>
+        <div class="haiku-history">
+          <strong>History:</strong> ${element.history}
+          <div class="citation-link">
+            <a href="https://www.fishersci.com/us/en/periodic-table.html" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; color: #666; text-decoration: none; margin-top: 0.5rem; display: inline-block;">
+              Source: Fisher Scientific Periodic Table
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   `;
