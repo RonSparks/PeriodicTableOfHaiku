@@ -203,10 +203,11 @@ body {
 }
 
 .periodic-table > li:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-md);
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px var(--primary-color), 0 6px 24px 0 rgba(0,0,0,0.18);
   border-color: var(--gray-400);
-  z-index: 10;
+  z-index: 20;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .periodic-table > li:before {
@@ -468,34 +469,303 @@ body {
   }
 }
 
-/* Animation for element hover */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.periodic-table > li:hover {
-  animation: pulse 0.3s ease-in-out;
-}
-
 /* Focus styles for accessibility */
 .periodic-table > li:focus {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px var(--primary-color), 0 6px 24px 0 rgba(0,0,0,0.18);
+  z-index: 20;
 }
 
-/* Hover/focus for dark mode */
-.periodic-table > li:hover, .periodic-table > li:focus {
-  background: var(--gray-700);
-  color: var(--gray-50);
-  border-color: var(--gray-400);
-  box-shadow: 0 0 0 2px var(--primary-color), 0 6px 24px 0 rgba(0,0,0,0.18);
+/* Elements Table Styles */
+.elements-table-container {
+  margin-top: var(--space-3xl);
+  padding: var(--space-lg);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.elements-table-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.elements-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+}
+
+.elements-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.elements-table th {
+  background: var(--gray-50);
+  padding: var(--space-md);
+  text-align: left;
+  font-weight: 600;
+  color: var(--gray-700);
+  border-bottom: 2px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.elements-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-700);
+  transition: all 0.2s ease;
+}
+
+.elements-table tbody tr {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.elements-table tbody tr:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.elements-table tbody tr:hover td {
+  color: var(--white);
+}
+
+.elements-table .element-number {
+  font-weight: 600;
+  font-family: var(--font-mono);
+  width: 80px;
+}
+
+.elements-table .element-name {
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.elements-table .author-name {
+  color: var(--gray-600);
+  font-style: italic;
+}
+
+.elements-table tbody tr:hover .author-name {
+  color: var(--gray-100);
+}
+
+/* About Page Styles */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-lg) 0;
+}
+
+.about-section {
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-lg);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+}
+
+.about-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: var(--space-md);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: var(--space-sm);
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+  margin-bottom: var(--space-md);
+}
+
+.about-text:last-child {
+  margin-bottom: 0;
+}
+
+.about-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.about-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.thumbnail-container {
+  text-align: center;
+  margin: var(--space-lg) 0;
+}
+
+.thumbnail {
+  max-width: 300px;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+/* About page lightbox styles */
+#about-lightbox {
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+#about-lightbox .lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+#about-lightbox .lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: var(--radius-md);
+  display: block;
+  margin: 0 auto;
+}
+
+#about-lightbox .close-btn {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: var(--gray-100);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#about-lightbox .close-btn:hover {
+  background: var(--gray-200);
   transform: scale(1.1);
-  z-index: 20;
+}
+
+/* Responsive about page styles */
+@media (max-width: 768px) {
+  .about-content {
+    padding: var(--space-md) 0;
+  }
+  
+  .about-section {
+    padding: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .about-section-title {
+    font-size: 1.25rem;
+  }
+  
+  .about-text {
+    font-size: 0.95rem;
+  }
+  
+  .thumbnail {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .about-section-title {
+    font-size: 1.125rem;
+  }
+  
+  .about-text {
+    font-size: 0.9rem;
+  }
+  
+  .thumbnail {
+    max-width: 200px;
+  }
+}
+
+/* Responsive table styles */
+@media (max-width: 768px) {
+  .elements-table-container {
+    margin-top: var(--space-xl);
+    padding: var(--space-md);
+  }
+  
+  .elements-table-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+  }
+  
+  .elements-table {
+    font-size: 0.75rem;
+  }
+  
+  .elements-table th,
+  .elements-table td {
+    padding: var(--space-sm);
+  }
+  
+  .elements-table .element-number {
+    width: 60px;
+  }
+  
+  .elements-table .element-name {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .elements-table-container {
+    padding: var(--space-sm);
+  }
+  
+  .elements-table {
+    font-size: 0.7rem;
+  }
+  
+  .elements-table th,
+  .elements-table td {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .elements-table .element-number {
+    width: 50px;
+  }
+  
+  .elements-table .element-name {
+    min-width: 80px;
+  }
 }
 
 /* Remove the pulse animation and fadeInUp for hover, keep only for initial load */

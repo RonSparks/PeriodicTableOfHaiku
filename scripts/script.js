@@ -17,6 +17,9 @@ function initializePeriodicTable() {
     element.style.animationDelay = `${index * 10}ms`;
     element.classList.add('element-fade-in');
   });
+  
+  // Populate the elements table
+  populateElementsTable();
 }
 
 function addKeyboardNavigation() {
@@ -49,6 +52,42 @@ function addTouchSupport() {
     element.addEventListener('touchend', function() {
       this.style.transform = '';
     });
+  });
+}
+
+function populateElementsTable() {
+  const tableBody = document.getElementById('elements-table-body');
+  
+  elementsData.forEach(element => {
+    // Extract author name from the poem
+    const authorMatch = element.poem.match(/<a href='[^']*'>([^<]+)<\/a>/);
+    const authorName = authorMatch ? authorMatch[1] : 'Unknown Author';
+    
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td class="element-number">${element.atomicNumber}</td>
+      <td class="element-name">${element.name}</td>
+      <td class="author-name">${authorName}</td>
+    `;
+    
+    // Add click handler to show poem
+    row.addEventListener('click', () => {
+      showPoem(element.atomicNumber);
+    });
+    
+    // Add keyboard support
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('role', 'button');
+    row.setAttribute('aria-label', `Element ${element.atomicNumber} - ${element.name} by ${authorName}, click to view haiku`);
+    
+    row.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        showPoem(element.atomicNumber);
+      }
+    });
+    
+    tableBody.appendChild(row);
   });
 }
 
