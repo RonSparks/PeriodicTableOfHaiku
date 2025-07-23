@@ -1,162 +1,313 @@
-@font-face {
-  font-family: Phenomena;
-  src:url(../fonts/Phenomena-Regular.otf);
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: Phenomena;
-  src:url(../fonts/Phenomena-Bold.otf);
-  font-weight: bold;
-}
+/* Modern CSS Reset and Base Styles */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body {
-  font-family: Phenomena, script;
 
-  background: #d3d3d3;
-  color: #000;
-  counter-reset: element;
-  font-size: 1.1em;
+:root {
+  /* Color Palette */
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #64748b;
+  --accent-color: #f59e0b;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  
+  /* Neutral Colors */
+  --white: #ffffff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  
+  /* Element Colors */
+  --hydrogen: #60a5fa;
+  --alkali: #f472b6;
+  --alkaline: #86efac;
+  --transition-metal: #a78bfa;
+  --post-transition: #fbbf24;
+  --metalloid: #34d399;
+  --nonmetal: #f87171;
+  --noble-gas: #fbbf24;
+  --lanthanide: #06b6d4;
+  --actinide: #84cc16;
+  --unknown: #9ca3af;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
+
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+  color: var(--gray-900);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--gray-600);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  background: var(--gray-100);
+}
+
+.nav-link-text {
+  font-size: 0.875rem;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: var(--space-xl) 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  margin-bottom: var(--space-xl);
+}
+
+/* Periodic Table Container */
+.periodic-table-container {
+  background: var(--gray-900);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Periodic Table Grid */
 .periodic-table {
   display: grid;
-  grid-column-gap: .5vw;
-  grid-row-gap: .5vw;
-  padding-left: 0;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 2px;
+  padding: 0;
+  list-style: none;
+  counter-reset: element;
 }
+
 .periodic-table > li {
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
-  height: 4.5vw;
-  border-radius: 3px;
-  background: rgb(91, 194, 234);
-  font-weight: bold;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  background: var(--gray-800);
+  color: var(--gray-50);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s, border-color 0.18s;
+  border: 1px solid var(--gray-700);
 }
+
+.periodic-table > li:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gray-400);
+  z-index: 10;
+}
+
 .periodic-table > li:before {
-  counter-increment: element; 
+  counter-increment: element;
   content: counter(element);
   position: absolute;
-  bottom: 5px;
-  left: 6px;
-  font-size: .9vw;
-  font-weight: lighter;
+  bottom: 2px;
+  left: 2px;
+  font-size: 0.5rem;
+  font-weight: 400;
+  color: var(--gray-400);
+  font-family: var(--font-mono);
 }
-ol li:hover::after {
-  content: "Click to view poem";
-  display: block;
-  position: absolute;
-  background-color: #333;
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  top: 50%;
-  left: 100%;
-  transform: translate(5px, -50%);
-  white-space: nowrap;
-  z-index: 9898;
-}
+
 .periodic-table > li abbr {
-  font-size: 2.5vw;
+  font-size: clamp(0.5rem, 1.5vw, 0.875rem);
+  font-weight: 600;
+  color: var(--gray-50);
+  text-decoration: none;
+  font-family: var(--font-mono);
 }
-.periodic-table > li hover {
-  background-color: #ddd;
+
+/* Element Type Colors */
+.periodic-table .hydrogen {
+  background: #2563eb;
+  color: #fff;
 }
+
+.periodic-table .alkali {
+  background: #a21caf;
+  color: #fff;
+}
+
+.periodic-table .alkaline {
+  background: #15803d;
+  color: #fff;
+}
+
+.periodic-table .noble-gas {
+  background: #ca8a04;
+  color: #fff;
+}
+
+.periodic-table .diatomic-nonmetal {
+  background: #b91c1c;
+  color: #fff;
+}
+
+.periodic-table .polyatomic-non-metal {
+  background: #b91c1c;
+  color: #fff;
+}
+
+.periodic-table .metalloid {
+  background: #0d9488;
+  color: #fff;
+}
+
+.periodic-table .lanthanide {
+  background: #0369a1;
+  color: #fff;
+}
+
+.periodic-table .actinide {
+  background: #365314;
+  color: #fff;
+}
+
+.periodic-table .unknown {
+  background: #334155;
+  color: #fff;
+}
+
+/* Periodic Table Layout Adjustments */
 #helium {
-  grid-column-start: 18;
+  grid-column: 18;
 }
+
 #boron, #aluminium {
-  grid-column-start: 13;
+  grid-column: 13;
 }
+
 #cerium, #thorium {
-  grid-column-start: 4;
+  grid-column: 4;
 }
+
 .periodic-table > li:nth-child(n+58):nth-last-child(n+48) {
-  grid-row-start: 8;
+  grid-row: 8;
 }
+
 .periodic-table > li:nth-child(n+90):nth-last-child(n+16) {
-  grid-row-start: 9;
+  grid-row: 9;
 }
+
 .periodic-table:before {
-  display: block;
   content: '';
   grid-row: 8 / 10;
   grid-column: 1 / 4;
 }
-.periodic-table .noble-gas {
-  background: rgb(234, 218, 36);
-}
-.periodic-table .diatomic-nonmetal {
-  background: rgb(234, 179, 127);
-}
-.periodic-table .alkali {
-  background: hsl(326, 52%, 84%);
-}
-.periodic-table .hydrogen {
-  background: rgb(163, 199, 210);  
-}
-.periodic-table .alkaline {
-  background: hsl(120, 52%, 84%);
-}
-.periodic-table .unknown {
-  background: hsl(210, 2%, 73%);
-}
-.periodic-table .lanthanide {
-  background: hsl(183, 54%, 84%);
-}
-.periodic-table .actinide {
-  background: hsl(82, 60%, 56%);  
-}
-.periodic-table .metalloid {
-  background: hsl(142, 60%, 56%);  
-}
-.periodic-table .polyatomic-non-metal {
-  background: hsl(358, 60%, 56%);  
-}
 
-@media all and (max-width: 1100px) {
-  #helium, #boron, #aluminium, #cerium, #thorium {
-  grid-column-start: auto;
-  }
-  .periodic-table {
-  grid-template-columns: 1fr 1fr 1fr;
-  }
-  .periodic-table > li abbr {
-    font-size: 0;
-  }
-  .periodic-table > li {
-    padding: 1rem;
-  }
-  .periodic-table > li abbr:after {
-    content: attr(title);
-    font-size: 2rem;
-  }
-  .periodic-table > li:before {
-    font-size: 1rem;
-  }
-  .periodic-table > li:nth-child(n+58):nth-last-child(n+48) {
-  grid-row-start: auto !important;
-}
-  .periodic-table > li:nth-child(n+90):nth-last-child(n+16) {
-    grid-row-start: auto !important;
-  }
-  .periodic-table:before {
-    display: none !important;
-  }
-}
-h1 {
-  display: block;
-  font-size: 3em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-/* Styles for the lightbox */
+/* Lightbox Styles */
 #lightbox-overlay {
   display: none;
   position: fixed;
@@ -164,79 +315,216 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Set a high z-index to ensure it appears on top */
+  z-index: 1000;
+  padding: var(--space-lg);
 }
 
 #lightbox-content {
-  background: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1.3em;
-}
-
-/* Styles for the dark footer */
-#footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 7px;
-  bottom: 0;
+  background: var(--white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  max-width: 600px;
   width: 100%;
-}
-/* Styles for the footer links */
-#footer a {
-  color: orange;
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray-900);
 }
 
-/* Styles for the header */
-#header {
-  background: #333;
-  color: #fff;
+#lightbox-content h1,
+#lightbox-content h2,
+#lightbox-content h3 {
+  color: var(--gray-900);
+  margin-bottom: var(--space-md);
+}
+
+#lightbox-content p {
+  margin-bottom: var(--space-md);
+}
+
+#lightbox-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+#lightbox-content a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  background: var(--gray-900);
+  color: var(--gray-300);
+  padding: var(--space-lg) 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
   text-align: center;
-  padding: 5px; 
-  top: 0;
-  width: 100%;
-  z-index: 9999; /* Set a high z-index to ensure it appears on top */
-}
-#header a:visited {
-  color: orange;
-}
-#header a {
-  color: orange;
 }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 20px;
-    }
+.footer-text {
+  font-size: 0.875rem;
+  margin: 0;
+}
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+.footer-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
 
-@media all and (max-width: 750px) {
-  body {
-    margin: 2vw;
-  }
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
   .periodic-table {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 1px;
   }
+  
+  .periodic-table > li abbr {
+    font-size: clamp(0.4rem, 1.2vw, 0.75rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .nav-title {
+    font-size: 1.25rem;
+  }
+  
+  .hero {
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .periodic-table-container {
+    padding: var(--space-lg);
+  }
+  
+  .periodic-table {
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1px;
+  }
+  
+  #helium, #boron, #aluminium, #cerium, #thorium {
+    grid-column: auto;
+  }
+  
+  .periodic-table > li:nth-child(n+58):nth-last-child(n+48),
+  .periodic-table > li:nth-child(n+90):nth-last-child(n+16) {
+    grid-row: auto;
+  }
+  
+  .periodic-table:before {
+    display: none;
+  }
+  
+  .periodic-table > li abbr {
+    font-size: clamp(0.6rem, 2vw, 0.875rem);
+  }
+  
+  .periodic-table > li:before {
+    font-size: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .periodic-table-container {
+    padding: var(--space-md);
+  }
+  
+  .periodic-table {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .periodic-table > li abbr {
+    font-size: clamp(0.5rem, 2.5vw, 0.75rem);
+  }
+  
+  #lightbox-content {
+    padding: var(--space-lg);
+    margin: var(--space-md);
+  }
+}
+
+/* Animation for element hover */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.periodic-table > li:hover {
+  animation: pulse 0.3s ease-in-out;
+}
+
+/* Focus styles for accessibility */
+.periodic-table > li:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Hover/focus for dark mode */
+.periodic-table > li:hover, .periodic-table > li:focus {
+  background: var(--gray-700);
+  color: var(--gray-50);
+  border-color: var(--gray-400);
+  box-shadow: 0 0 0 2px var(--primary-color), 0 6px 24px 0 rgba(0,0,0,0.18);
+  transform: scale(1.1);
+  z-index: 20;
+}
+
+/* Remove the pulse animation and fadeInUp for hover, keep only for initial load */
+.element-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles */
+@media print {
+  .header,
+  .footer {
+    display: none;
+  }
+  
+  .periodic-table-container {
+    box-shadow: none;
+    border: 1px solid var(--gray-300);
+  }
+  
   .periodic-table > li {
-    height: auto;
-    font-size: 3vw;
-  }
-}
-@media all and (max-width: 550px) {
-  .periodic-table {
-    grid-template-columns: 1fr;
+    border: 1px solid var(--gray-300);
   }
 }
