@@ -198,16 +198,44 @@ body {
   color: var(--gray-50);
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s, border-color 0.18s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--gray-700);
+  transform: translateZ(0);
+  will-change: transform, box-shadow, border-color;
 }
 
 .periodic-table > li:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 0 2px var(--primary-color), 0 6px 24px 0 rgba(0,0,0,0.18);
-  border-color: var(--gray-400);
+  transform: scale(1.15) translateZ(0);
+  box-shadow: 
+    0 0 0 2px var(--primary-color), 
+    0 8px 32px 0 rgba(0,0,0,0.25),
+    0 4px 16px 0 rgba(0,0,0,0.15);
+  border-color: var(--primary-color);
   z-index: 20;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.periodic-table > li:active {
+  transform: scale(1.05) translateZ(0);
+  transition: transform 0.1s ease;
+}
+
+/* Add a subtle glow effect on hover */
+.periodic-table > li::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.periodic-table > li:hover::after {
+  opacity: 0.3;
 }
 
 .periodic-table > li:before {
